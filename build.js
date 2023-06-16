@@ -86,7 +86,12 @@ async function build() {
       }))
     };
 
-    const processed = processor.process(compiledTemplate, content);
+    let processed = processor.process(compiledTemplate, content);
+
+    const regex = /\[TIW_ORG_NAME\]/gm
+    const valueToReplace = process.env.TIW_ORG_NAME ?? '[TIW_ORG_NAME]';
+    processed = processed.replace(regex, valueToReplace)
+    
     console.log('    Input processed');
 
     const languageDir = path.join(outputDir, language.outPath);
