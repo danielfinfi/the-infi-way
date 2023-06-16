@@ -88,10 +88,18 @@ async function build() {
 
     let processed = processor.process(compiledTemplate, content);
 
-    const regex = /\[TIW_ORG_NAME\]/gm
-    const valueToReplace = process.env.TIW_ORG_NAME ?? '[TIW_ORG_NAME]';
-    processed = processed.replace(regex, valueToReplace)
-    
+    // Move to a separate function
+    const defaults = {...JSON.parse((await fs.readFile(path.join(contentDir, 'defaults.json'))).toString())}
+
+    let regex = /\[TIW_ORG_NAME\]/gm
+    processed = processed.replace(regex, process.env.TIW_ORG_NAME ?? defaults.TIW_ORG_NAME)
+
+    regex = /\[TIW_ORG_LOGO_BASE64\]/gm
+    processed = processed.replace(regex, process.env.TIW_ORG_LOGO_BASE64 ?? defaults.TIW_ORG_LOGO_BASE64)
+
+    regex = /\[TIW_ORG_LOGO_MIMETYPE\]/gm
+    processed = processed.replace(regex, process.env.TIW_ORG_LOGO_MIMETYPE ?? defaults.TIW_ORG_LOGO_MIMETYPE)
+
     console.log('    Input processed');
 
     const languageDir = path.join(outputDir, language.outPath);

@@ -2,11 +2,11 @@
   "language": "🇬🇧 English",
   "description": "An overview of how we like to build software: which techniques and technology we like to use, and which principles we follow.",
   "header": {
-    "subtitle": "At Infi we like to work the following way."
+    "subtitle": "At [TIW_ORG_NAME] we like to work the following way."
   },
   "test": {
     "title": "The [TIW_ORG_NAME] Test",
-    "subtitle": "A quick check to see if you're roughly following <em>The Infi Way</em>. A sort of <a href=\"https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/\" target=\"_blank\">Joel Test</a>.",
+    "subtitle": "A quick check to see if you're roughly following <em>The [TIW_ORG_NAME] Way</em>. A sort of <a href=\"https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/\" target=\"_blank\">Joel Test</a>.",
     "checks": [
       {
         "topic": "users",

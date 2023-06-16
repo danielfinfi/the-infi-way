@@ -107,34 +107,34 @@ footer {
     margin: 0 auto;
 }
 
-.infi-test {
+.the-test {
     padding: 2rem;
     margin: 1rem 0.5rem 120px;
     background: var(--color-block);
     box-shadow: var(--box-shadow);
 }
 
-.infi-test h2 {
+.the-test h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
 }
 
-.infi-test ol {
+.the-test ol {
     margin: 1rem 0;
     padding-left: 0;
-    counter-reset: infi-test;
+    counter-reset: the-test;
     list-style: none;
 }
 
-.infi-test ol li {
+.the-test ol li {
     margin-bottom: 0.7rem;
     display: flex;
     align-items: baseline;
 }
 
-.infi-test ol li::before {
-    counter-increment: infi-test;
-    content: counter(infi-test);
+.the-test ol li::before {
+    counter-increment: the-test;
+    content: counter(the-test);
     margin-right: 0.7rem;
     flex: 0 0 1.7rem;
     height: 1.7rem;
@@ -313,7 +313,7 @@ h2:hover a .anchor-hint {
         margin-top: 60px;
     }
 
-    .infi-test {
+    .the-test {
         padding-left: 1rem;
         padding-right: 1rem;
         margin-bottom: 60px;
@@ -323,7 +323,7 @@ h2:hover a .anchor-hint {
         max-width: none;
     }
 
-    .block, .infi-test {
+    .block, .the-test {
         border-width: 2px;
         margin-left: 0;
         margin-right: 0;
@@ -363,31 +363,31 @@ h2:hover a .anchor-hint {
     }
 }
 
-.infi-test ol .topic-users::before {
+.the-test ol .topic-users::before {
     background: var(--color-topic-users);
 }
 
-.infi-test ol .topic-principles::before {
+.the-test ol .topic-principles::before {
     background: var(--color-topic-principles);
 }
 
-.infi-test ol .topic-source-code::before {
+.the-test ol .topic-source-code::before {
     background: var(--color-topic-source-code);
 }
 
-.infi-test ol .topic-technology::before {
+.the-test ol .topic-technology::before {
     background: var(--color-topic-technology);
 }
 
-.infi-test ol .topic-process-and-team::before {
+.the-test ol .topic-process-and-team::before {
     background: var(--color-topic-process-and-team);
 }
 
-.infi-test ol .topic-craft::before {
+.the-test ol .topic-craft::before {
     background: var(--color-topic-craft);
 }
 
-.infi-test ol .topic-others::before {
+.the-test ol .topic-others::before {
     background: var(--color-topic-others);
 }
 
