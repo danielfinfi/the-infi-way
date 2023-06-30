@@ -58,7 +58,12 @@ function tryBuild() {
 
 async function build() {
   console.log('Starting build...');
-  const template = (await fs.readFile(templateFile)).toString();
+  let template = (await fs.readFile(templateFile)).toString();
+
+  const templateFooter = (await fs.readFile(path.join(contentDir, 'template-footer.html'))).toString().concat('<p>---</p>');
+  let regex = /\[TIW_FOOTER\]/gm;
+  template = template.replace(regex, process.env.TIW_ORG_NAME?.concat('<p>---</p>') ?? templateFooter);
+
   const processor = new TemplateProcessor();
   const compiledTemplate = processor.compile(template);
 
@@ -89,16 +94,16 @@ async function build() {
     let processed = processor.process(compiledTemplate, content);
 
     // Move to a separate function
-    const defaults = {...JSON.parse((await fs.readFile(path.join(contentDir, 'defaults.json'))).toString())}
+    const defaults = {...JSON.parse((await fs.readFile(path.join(contentDir, 'defaults.json'))).toString())};
 
-    let regex = /\[TIW_ORG_NAME\]/gm
-    processed = processed.replace(regex, process.env.TIW_ORG_NAME ?? defaults.TIW_ORG_NAME)
+    regex = /\[TIW_ORG_NAME\]/gm;
+    processed = processed.replace(regex, process.env.TIW_ORG_NAME ?? defaults.TIW_ORG_NAME);
 
-    regex = /\[TIW_ORG_LOGO_BASE64\]/gm
-    processed = processed.replace(regex, process.env.TIW_ORG_LOGO_BASE64 ?? defaults.TIW_ORG_LOGO_BASE64)
+    regex = /\[TIW_ORG_LOGO_BASE64\]/gm;
+    processed = processed.replace(regex, process.env.TIW_ORG_LOGO_BASE64 ?? defaults.TIW_ORG_LOGO_BASE64);
 
-    regex = /\[TIW_ORG_LOGO_MIMETYPE\]/gm
-    processed = processed.replace(regex, process.env.TIW_ORG_LOGO_MIMETYPE ?? defaults.TIW_ORG_LOGO_MIMETYPE)
+    regex = /\[TIW_ORG_LOGO_MIMETYPE\]/gm;
+    processed = processed.replace(regex, process.env.TIW_ORG_LOGO_MIMETYPE ?? defaults.TIW_ORG_LOGO_MIMETYPE);
 
     console.log('    Input processed');
 
